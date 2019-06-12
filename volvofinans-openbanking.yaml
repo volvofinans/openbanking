@@ -583,7 +583,7 @@ components:
         product:
           description: Product name of this account. Volvofinans Bank proprietary definition.
           type: string
-          maxLength: 35
+          maxLength: 30
           example: "Volvokort Visa"
         balances:
           $ref: "#/components/schemas/balanceList"
