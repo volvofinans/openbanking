@@ -567,8 +567,13 @@ components:
       description: |
         Represents the account details
       type: object
-      #required:
-      #  - currency
+      required:
+        - resourceId
+        - accountNumber
+        - currency
+        - product
+        - accountType
+        - status
       properties:
         resourceId:
           description: |
