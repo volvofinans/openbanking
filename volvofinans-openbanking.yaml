@@ -4,7 +4,7 @@ info:
   version: "1.0"
   description: |
       ## Introduction
-      Welcome to Volvofinans Bank Open Banking API documentation. The purpose of this document is to describe the
+      Welcome to Volvofinans Bank Open Banking API documentation. The purpose of this document is to describe the Volvofinans Bank PSD2 services.
       
       ### Available services
       We currently provide Account Information Services (AIS). Se details below.
