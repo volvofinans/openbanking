@@ -1651,214 +1651,212 @@ components:
       description: Transactions example for a regular credit account
       value:
         {
-          {
-              "accountNumber": "5660729",
-              "transactions": {
-                  "booked": [
-                      {
-                          "transactionId": "8d90cd63bbbc0d8e58c9096948f832bfe5c52759bfc0434826681edc0d72f35f",
-                          "proprietaryBankTransactionCode": "TRANSFER",
-                          "transactionDetails": "Överföring",
-                          "transactionAmount": {
-                              "amount": 1500,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-14",
-                          "fromAccount": "5680430",
-                          "toAccount": "5660729",
-                          "ownMessage": "Anonym"
+          "accountNumber": "5660729",
+          "transactions": {
+              "booked": [
+                  {
+                      "transactionId": "8d90cd63bbbc0d8e58c9096948f832bfe5c52759bfc0434826681edc0d72f35f",
+                      "proprietaryBankTransactionCode": "TRANSFER",
+                      "transactionDetails": "Överföring",
+                      "transactionAmount": {
+                          "amount": 1500,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "081724ad79f22c7fbaa31835bbf645498126af60a7e4835f696b1b9793b6d9ce",
-                          "proprietaryBankTransactionCode": "TRANSFER",
-                          "transactionDetails": "Uttag",
-                          "transactionAmount": {
-                              "amount": -15000,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-12",
-                          "fromAccount": "5660729",
-                          "bank": "Nordea - personkonto",
-                          "clearingNumber": "3300",
-                          "bankAccountNumber": "5009101824",
-                          "ownMessage": "Anonym"
+                      "transactionDate": "2019-05-14",
+                      "fromAccount": "5680430",
+                      "toAccount": "5660729",
+                      "ownMessage": "Anonym"
+                  },
+                  {
+                      "transactionId": "081724ad79f22c7fbaa31835bbf645498126af60a7e4835f696b1b9793b6d9ce",
+                      "proprietaryBankTransactionCode": "TRANSFER",
+                      "transactionDetails": "Uttag",
+                      "transactionAmount": {
+                          "amount": -15000,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "cc2131cf0919cb4032d28cea036234f3575d1e9e55747caa97cd264c519f9f40",
-                          "proprietaryBankTransactionCode": "PAYMENT",
-                          "transactionDetails": "Inbetalt via Bankgiro",
-                          "transactionAmount": {
-                              "amount": -2490.5,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-11"
+                      "transactionDate": "2019-05-12",
+                      "fromAccount": "5660729",
+                      "bank": "Nordea - personkonto",
+                      "clearingNumber": "3300",
+                      "bankAccountNumber": "5009101824",
+                      "ownMessage": "Anonym"
+                  },
+                  {
+                      "transactionId": "cc2131cf0919cb4032d28cea036234f3575d1e9e55747caa97cd264c519f9f40",
+                      "proprietaryBankTransactionCode": "PAYMENT",
+                      "transactionDetails": "Inbetalt via Bankgiro",
+                      "transactionAmount": {
+                          "amount": -2490.5,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "d98cf6fed3821ad7a00dcf39878e012636764bffe1099386a2b7a3579cae361a",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "Volvohandlaren",
-                          "transactionAmount": {
-                              "amount": -9962,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-09",
-                          "loyaltyPoints": 9962
+                      "transactionDate": "2019-05-11"
+                  },
+                  {
+                      "transactionId": "d98cf6fed3821ad7a00dcf39878e012636764bffe1099386a2b7a3579cae361a",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "Volvohandlaren",
+                      "transactionAmount": {
+                          "amount": -9962,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "8a20d38dfb40461b690902d7a2fde6485c996a096ad374430656ee247cf60692",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "Cale Access AB",
-                          "transactionAmount": {
-                              "amount": -103,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-08",
-                          "cardSequence": 1,
-                          "loyaltyPoints": 51.5
+                      "transactionDate": "2019-05-09",
+                      "loyaltyPoints": 9962
+                  },
+                  {
+                      "transactionId": "8a20d38dfb40461b690902d7a2fde6485c996a096ad374430656ee247cf60692",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "Cale Access AB",
+                      "transactionAmount": {
+                          "amount": -103,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "3b50e2d7ec37f26b4f9b83e675068d25c4e51a135c4f7d344ec5be20b821c2f1",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "CASH CARISBO   2022-BOLOG",
-                          "transactionAmount": {
-                              "amount": -2659.74,
-                              "currency": "SEK"
-                          },
-                          "originalAmount": {
-                              "amount": -250,
-                              "currency": "EUR"
-                          },
-                          "foreignTransactionFee": {
-                              "amount": -38.55,
-                              "currency": "SEK"
-                          },
-                          "withdrawalFee": {
-                              "amount": -51.4,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-07",
-                          "cardSequence": 1,
-                          "loyaltyPoints": 0,
-                          "cardAcceptorAddress": {
-                              "city": "BOLOGNA",
-                              "country": "IT"
-                          },
-                          "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
+                      "transactionDate": "2019-05-08",
+                      "cardSequence": 1,
+                      "loyaltyPoints": 51.5
+                  },
+                  {
+                      "transactionId": "3b50e2d7ec37f26b4f9b83e675068d25c4e51a135c4f7d344ec5be20b821c2f1",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "CASH CARISBO   2022-BOLOG",
+                      "transactionAmount": {
+                          "amount": -2659.74,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "7f2ac3fe884312da381083ed8f144bdb975b48a60ee1640679c25fa0ed465695",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "BANKOMAT HULTA TORG 4",
-                          "transactionAmount": {
-                              "amount": -2040,
-                              "currency": "SEK"
-                          },
-                          "withdrawalFee": {
-                              "amount": -40,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-07",
-                          "cardSequence": 1,
-                          "loyaltyPoints": 0,
-                          "cardAcceptorAddress": {
-                              "city": "BORAS",
-                              "country": "SE"
-                          },
-                          "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
+                      "originalAmount": {
+                          "amount": -250,
+                          "currency": "EUR"
                       },
-                      {
-                          "transactionId": "5fd82569605f3429e0752512de5b12e9bd6f66a91f9a8e20d3312e7f9f883db2",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "ATM SPAREBANKEN MOERE LAN",
-                          "transactionAmount": {
-                              "amount": -2123.81,
-                              "currency": "SEK"
-                          },
-                          "originalAmount": {
-                              "amount": -2000,
-                              "currency": "NOK"
-                          },
-                          "foreignTransactionFee": {
-                              "amount": -30.78,
-                              "currency": "SEK"
-                          },
-                          "withdrawalFee": {
-                              "amount": -41.04,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-06",
-                          "cardSequence": 1,
-                          "loyaltyPoints": 0,
-                          "cardAcceptorAddress": {
-                              "city": "AALESUND",
-                              "country": "NO"
-                          },
-                          "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
-                      }
-                  ],
-                  "pending": [
-                      {
-                          "transactionId": "5b6eec3fbb7753d40df8952ab152398e778a2ec73bb01e0a69e8434476b971f8",
-                          "proprietaryBankTransactionCode": "TRANSFER",
-                          "transactionDetails": "Utbetalning",
-                          "transactionAmount": {
-                              "amount": -85,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-30",
-                          "fromAccount": "5660729",
-                          "bank": "SEB",
-                          "clearingNumber": "5174",
-                          "bankAccountNumber": "24176",
-                          "ownMessage": "Anonym"
+                      "foreignTransactionFee": {
+                          "amount": -38.55,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "df6e9798342637861e6d0a5b219f242a9bf643c4791ff4483d6f453fee485ca5",
-                          "proprietaryBankTransactionCode": "TRANSFER",
-                          "transactionDetails": "Överföring",
-                          "transactionAmount": {
-                              "amount": 5000,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-30",
-                          "fromAccount": "5680430",
-                          "toAccount": "5660729",
-                          "ownMessage": "Anonym"
+                      "withdrawalFee": {
+                          "amount": -51.4,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "4871fa0d5fd987169756431440abf9738899d4b9ca866a7243e32b96938cbf0f",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "PARKERINGSBOLAGET",
-                          "transactionAmount": {
-                              "amount": -10,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-20",
-                          "cardSequence": 1
+                      "transactionDate": "2019-05-07",
+                      "cardSequence": 1,
+                      "loyaltyPoints": 0,
+                      "cardAcceptorAddress": {
+                          "city": "BOLOGNA",
+                          "country": "IT"
                       },
-                      {
-                          "transactionId": "ed32394d46c58e529a5f643aafd9fac274c867bd7c71133e7e55edea003963e0",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "Tanka Stockholm",
-                          "transactionAmount": {
-                              "amount": -253.25,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-16",
-                          "cardSequence": 1
+                      "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
+                  },
+                  {
+                      "transactionId": "7f2ac3fe884312da381083ed8f144bdb975b48a60ee1640679c25fa0ed465695",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "BANKOMAT HULTA TORG 4",
+                      "transactionAmount": {
+                          "amount": -2040,
+                          "currency": "SEK"
                       },
-                      {
-                          "transactionId": "71e3e4ed9c1bce19d53a3641fae32891454556de32b0f0581f2682070365b3f3",
-                          "proprietaryBankTransactionCode": "PURCHASE",
-                          "transactionDetails": "Tanka Karlstad",
-                          "transactionAmount": {
-                              "amount": -481.72,
-                              "currency": "SEK"
-                          },
-                          "transactionDate": "2019-05-16",
-                          "cardSequence": 1
-                      }
-                  ]
-              }
+                      "withdrawalFee": {
+                          "amount": -40,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-07",
+                      "cardSequence": 1,
+                      "loyaltyPoints": 0,
+                      "cardAcceptorAddress": {
+                          "city": "BORAS",
+                          "country": "SE"
+                      },
+                      "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
+                  },
+                  {
+                      "transactionId": "5fd82569605f3429e0752512de5b12e9bd6f66a91f9a8e20d3312e7f9f883db2",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "ATM SPAREBANKEN MOERE LAN",
+                      "transactionAmount": {
+                          "amount": -2123.81,
+                          "currency": "SEK"
+                      },
+                      "originalAmount": {
+                          "amount": -2000,
+                          "currency": "NOK"
+                      },
+                      "foreignTransactionFee": {
+                          "amount": -30.78,
+                          "currency": "SEK"
+                      },
+                      "withdrawalFee": {
+                          "amount": -41.04,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-06",
+                      "cardSequence": 1,
+                      "loyaltyPoints": 0,
+                      "cardAcceptorAddress": {
+                          "city": "AALESUND",
+                          "country": "NO"
+                      },
+                      "visaMerchantCategory": "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
+                  }
+              ],
+              "pending": [
+                  {
+                      "transactionId": "5b6eec3fbb7753d40df8952ab152398e778a2ec73bb01e0a69e8434476b971f8",
+                      "proprietaryBankTransactionCode": "TRANSFER",
+                      "transactionDetails": "Utbetalning",
+                      "transactionAmount": {
+                          "amount": -85,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-30",
+                      "fromAccount": "5660729",
+                      "bank": "SEB",
+                      "clearingNumber": "5174",
+                      "bankAccountNumber": "24176",
+                      "ownMessage": "Anonym"
+                  },
+                  {
+                      "transactionId": "df6e9798342637861e6d0a5b219f242a9bf643c4791ff4483d6f453fee485ca5",
+                      "proprietaryBankTransactionCode": "TRANSFER",
+                      "transactionDetails": "Överföring",
+                      "transactionAmount": {
+                          "amount": 5000,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-30",
+                      "fromAccount": "5680430",
+                      "toAccount": "5660729",
+                      "ownMessage": "Anonym"
+                  },
+                  {
+                      "transactionId": "4871fa0d5fd987169756431440abf9738899d4b9ca866a7243e32b96938cbf0f",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "PARKERINGSBOLAGET",
+                      "transactionAmount": {
+                          "amount": -10,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-20",
+                      "cardSequence": 1
+                  },
+                  {
+                      "transactionId": "ed32394d46c58e529a5f643aafd9fac274c867bd7c71133e7e55edea003963e0",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "Tanka Stockholm",
+                      "transactionAmount": {
+                          "amount": -253.25,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-16",
+                      "cardSequence": 1
+                  },
+                  {
+                      "transactionId": "71e3e4ed9c1bce19d53a3641fae32891454556de32b0f0581f2682070365b3f3",
+                      "proprietaryBankTransactionCode": "PURCHASE",
+                      "transactionDetails": "Tanka Karlstad",
+                      "transactionAmount": {
+                          "amount": -481.72,
+                          "currency": "SEK"
+                      },
+                      "transactionDate": "2019-05-16",
+                      "cardSequence": 1
+                  }
+              ]
           }
         }
