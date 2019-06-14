@@ -50,10 +50,8 @@ externalDocs:
   url: https://dev.volvofinans.se
 
 servers:
-  - url: https://api.sandbox.volvofinans.se
+  - url: https://api.sandbox.volvofinans.se/openbanking
     description: Sandbox environment
-  - url: https://api.volvofinans.se
-    description: Production environment
 
 tags:
   - name: Account Information Service (AIS)
