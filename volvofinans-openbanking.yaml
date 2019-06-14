@@ -1363,7 +1363,7 @@ components:
           * "booked",
           * "pending" and 
           * "both"
-      required: true
+      required: false
       schema:
         type: string
         enum:
