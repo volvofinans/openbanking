@@ -823,13 +823,13 @@ components:
       type: string
       maxLength: 35
       enum: 
-        - "CORRECTION"
-        - "FEE"
-        - "INTEREST"
-        - "PAYMENT"
-        - "PURCHASE"
-        - "TRANSFER"              
-        - "UNKNOWN"
+        - "CORRECTION" # Corrections on account
+        - "FEE"        # Fees deducted from account
+        - "INTEREST"   # Account interest
+        - "PAYMENT"    # Payments to the account
+        - "PURCHASE"   # Regular purchases
+        - "TRANSFER"   # Transfer between accounts, internal and external
+        - "UNKNOWN"    # Should never be used
 
     readAccountBalanceResponse-200:
       description: Body of the response for a successful read balance for an account request.
