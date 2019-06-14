@@ -35,9 +35,9 @@ info:
       are available to the card holder.
       - AIS: Account Information Services
       - AISP: Account Information Service Provider
-      - ASPSP: Account Servicing Payment Service Providers
+      - ASPSP: Account Servicing Payment Service Provider
       - PSU: Payment Service User
-      - TPP: Third party provider
+      - TPP: Third Party Provider
 
   contact:
     name: Volvofinans Bank AB
@@ -70,15 +70,13 @@ paths:
     get:
       summary: Read Account List
       description: | 
-        Read the identifiers of the available account together with 
+        Read the identifiers of the available account together with
         booking balance information, depending on the consent granted.
 
-        It is assumed that a consent of the PSU to this access is already given and stored on the ASPSP system. 
-        The addressed list of accounts depends then on the PSU ID and the stored consent addressed by consentId, 
-        respectively the OAuth2 access token. 
+        It is assumed that a consent of the PSU to this access is already given to the ASPSP system.
+        The addressed list of accounts depends then on the PSU ID and the consent addressed by the OAuth2 access token.
 
-        Returns all identifiers of the accounts, to which an account access has been granted to through 
-        the /consents endpoint by the PSU. 
+        Returns all identifiers of the accounts, to which an account access has been granted by the PSU.
       operationId: getAccountList
       tags:
         - Account Information Service (AIS)
@@ -125,14 +123,12 @@ paths:
       summary: Read Account Details
       description: | 
         Reads details about an account, with balances where required. 
-        It is assumed that a consent of the PSU to 
-        this access is already given and stored on the ASPSP system. 
-        The addressed details of this account depends then on the stored consent addressed by consentId, 
-        respectively the OAuth2 access token.
+        It is assumed that a consent of the PSU to this access is already given to the ASPSP system.
+        The addressed details of this account depends then on the PSU ID and the consent addressed by the OAuth2 access token.
 
         Give detailed information about the addressed account.
 
-        Give detailed information about the addressed account together with balance information
+        Give detailed information about the addressed account together with balance information.
       operationId: readAccountDetails
       tags:
         - Account Information Service (AIS)
@@ -229,9 +225,9 @@ paths:
       summary: Read transaction list of an account
       description: |
         Read transaction reports or transaction lists of a given account addressed by "account-id", depending on the steering parameter "bookingStatus".
-        "bookingStatus" defaults to "both" if not specified otherwise. 
+        "bookingStatus" defaults to "both" if not specified.
 
-        For a given account, additional parameters are e.g. the attributes "dateFrom" and "dateTo" and "entryReferenceFrom".
+        For a given account, additional parameters are e.g. the attributes "dateFrom", "dateTo" and "entryReferenceFrom".
         
         The transaction list return a maximum of 100 transactions per call. Use the query parameter "entryReferenceFrom" to fetch more transactions. 
       operationId: getTransactionList
@@ -292,9 +288,8 @@ components:
       required: false
 
     X-Request-ID:
-      #name: X-Request-ID
-      #in: header
-      description: ID (UUID) of the request, unique to the call, as determined by the initiating party.
+      description: |
+        ID of the request, unique to the call, as determined by the initiating party.
       required: true
       example: "99391c7e-ad88-49ec-a2ad-99ddcb1f7721"
       schema:
@@ -396,10 +391,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error400_NG_AIS" 
 
-        #application/problem+json:
-        #  schema:
-        #    $ref: "#/components/schemas/Error400_AIS"
-
     UNAUTHORIZED_401_AIS:
       description: Unauthorized
 
@@ -413,10 +404,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error401_NG_AIS" 
-
-        #application/problem+json:
-        #  schema:
-        #     $ref: "#/components/schemas/Error401_AIS"
 
     FORBIDDEN_403_AIS:
       description: Forbidden
@@ -432,10 +419,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error403_NG_AIS" 
 
-        #application/problem+json:
-        #  schema:
-        #     $ref: "#/components/schemas/Error403_AIS"
-
     NOT_FOUND_404_AIS:
       description: Not found
 
@@ -449,10 +432,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error404_NG_AIS" 
-
-        #application/problem+json:
-        #  schema:
-        #     $ref: "#/components/schemas/Error404_AIS"
 
     METHOD_NOT_ALLOWED_405_AIS:
       description: Method Not Allowed
@@ -468,10 +447,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error405_NG_AIS" 
 
-        #application/problem+json:
-         # schema:
-          #   $ref: "#/components/schemas/Error405_AIS"
-
     NOT_ACCEPTABLE_406_AIS:
       description: Not Acceptable
 
@@ -485,9 +460,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error406_NG_AIS" 
-       # application/problem+json:
-       #   schema:
-       #      $ref: "#/components/schemas/Error406_AIS"             
 
     REQUEST_TIMEOUT_408_AIS: 
       description: Request Timeout
@@ -512,10 +484,6 @@ components:
           schema:
              $ref: "#/components/schemas/Error409_NG_AIS"
 
-        #application/problem+json:
-        #  schema:
-        #     $ref: "#/components/schemas/Error409_AIS"
-
     UNSUPPORTED_MEDIA_TYPE_415_AIS:
       description: Unsupported Media Type
 
@@ -539,9 +507,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error429_NG_AIS" 
-        #application/problem+json:
-        #  schema:
-        #     $ref: "#/components/schemas/Error429_AIS"
 
     INTERNAL_SERVER_ERROR_500_AIS:
       description: Internal Server Error
@@ -723,29 +688,8 @@ components:
           * -1.50
           * 5877.78
       type: string
-      pattern: "-?[0-9]{1,14}(\\.[0-9]{1,3})?"
+      pattern: "-?[0-9]{1,14}(\\.[0-9]{1,2})?"
       example: "5877.78"
-
-    transactionDate:
-      description: Date of the transaction
-      type: string
-      format: date
-      example: "2019-05-01"
-
-    startDate:
-      description: |
-        The first applicable day of execution starting from this date is the first payment.
-      type: string
-      format: date
-      example: "2019-01-01"
-
-    endDate:
-      description: |
-        The last applicable day of execution
-        If not given, it is an infinite standing order.
-      type: string
-      format: date
-      example: "2019-03-01"
 
     balance:
       description: |
@@ -793,7 +737,7 @@ components:
 
     fuelDetails:
       description: |
-        Fueling details for fueling purchases made at Tanka and OKQ8
+        Fueling details for fueling purchases made at partner petrol stations.
       type: object
       properties:
         volume: 
@@ -866,7 +810,7 @@ components:
           type: string
         transactionAmount:
           description: |
-            The amount of the transaction in SEK
+            The amount and currency of the transaction.
             
             Available for Account Holders and Additional Card Holders.
           allOf:
@@ -1048,6 +992,13 @@ components:
           $ref: "#/components/schemas/accountReference"
         transactions:
           $ref: "#/components/schemas/accountReport"
+        _links:
+          description: |
+            The _links property is only available if there are moretransactions to fetch for the given date interval. 
+          type: object
+          properties:
+            fetchMoreUrl:
+              description: Url to use to fetch more transactions for the given date interval.
 
     MessageCode400_AIS: 
       description: Message codes defined for AIS for HTTP Error code 400 (BAD_REQUEST).
@@ -1170,58 +1121,7 @@ components:
 
     ## ERRORS
 
-    Error400_AIS: 
-      description: |
-        Standardised definition of reporting error information according to [RFC7807] 
-        in case of a HTTP error code 400 for AIS.
-      type: object
-      required:
-        - type
-        - code
-      properties:
-        type: 
-          description: |
-            A URI reference [RFC3986] that identifies the problem type. 
-            Remark For Future: These URI will be provided by NextGenPSD2 in future.
-          type: string
-          format: uri
-          maxLength: 70
-        title:
-          description: |
-            Short human readable description of error type. 
-            Could be in local language. 
-            To be provided by ASPSPs.
-          type: string
-          maxLength: 70
-        detail:
-          description: |
-            Detailed human readable text specific to this instance of the error. 
-            XPath might be used to point to the issue generating the error in addition.
-            Remark for Future: In future, a dedicated field might be introduced for the XPath.
-          type: string
-          maxLength: 512
-        code:
-          $ref: "#/components/schemas/MessageCode400_AIS"
-        additionalErrors:
-          description: |
-            Array of Error Information Blocks.
-
-            Might be used if more than one error is to be communicated
-          type: array
-          items: #ErrorInformation
-            description: This is a data element to support the declaration of additional errors in the context of [RFC7807]. 
-            type: object
-            required:
-              - code
-            properties:
-              title:
-                $ref: "#/components/schemas/tppErrorTitle"
-              detail:
-                $ref: "#/components/schemas/tppErrorDetail"
-              code:
-                $ref: "#/components/schemas/MessageCode400_AIS"
-
-    Error400_NG_AIS: 
+    Error400_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 400.
       type: object
@@ -1263,7 +1163,7 @@ components:
 
     Error405_NG_AIS: 
       description: |
-        NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 401.
+        NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 405.
       type: object
       properties:
         tppMessages:
@@ -1457,15 +1357,6 @@ components:
       schema:
         $ref: "#/components/schemas/accountId"
 
-    transactionId:
-      name: transactionId
-      in: path
-      description: |
-        This identification is given by the attribute transactionId of the corresponding entry of a transaction list.
-      required: true
-      schema:
-        $ref: "#/components/schemas/transactionId"
-
     bookingStatus:
       name: bookingStatus
       in: query
@@ -1517,9 +1408,9 @@ components:
       name: entryReferenceFrom
       in: query
       description: |
-        This data attribute is indicating that the AISP is in favour to get all transactions after 
-        the transaction with identification entryReferenceFrom alternatively. 
-        If this data element is contained, the entries "dateFrom" and "dateTo" is ignored
+        This data attribute is indicating that the AISP shall get all transactions after the transaction with
+        identification entryReferenceFrom. This is a implementation of a delta access.
+        If this data element is contained, the entry "dateFrom" is ignored.
       required: false
       schema:
         type: string
@@ -1687,7 +1578,7 @@ components:
                       "proprietaryBankTransactionCode": "PAYMENT",
                       "transactionDetails": "Inbetalt via Bankgiro",
                       "transactionAmount": {
-                          "amount": -2490.5,
+                          "amount": 2490.5,
                           "currency": "SEK"
                       },
                       "transactionDate": "2019-05-11"
