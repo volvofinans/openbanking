@@ -746,8 +746,7 @@ components:
         quality: 
           description: |
             Fueling quality
-          type: number
-          format: double
+          type: string
           example: "diesel"
 
     loyaltyPoints:
