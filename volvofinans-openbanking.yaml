@@ -5,12 +5,12 @@ info:
   description: |
       ## Introduction
       Welcome to Volvofinans Bank Open Banking API documentation. The purpose of this document is to describe the Volvofinans Bank PSD2 services.
-      
+
       ### Available services
       We currently provide Account Information Services (AIS). Se details below.
 
       ### Implementation
-      
+
       #### HTTP & REST
       The APIs are implemented using REST and HTTP. All calls must use `https` and be authenticated.
 
@@ -18,20 +18,20 @@ info:
       We use OAuth2 to authenticate requests. Tokens should be provided in the `Authorization` header and are valid for a limited time.
 
       #### Versioning and backwards compatibility
-      We strive to keep the API backwards compatible. New fields and services might be added. 
+      We strive to keep the API backwards compatible. New fields and services might be added.
 
       Note that the API might change in the future. Volvofinans Bank AB reserve the right to change or update the API accordingly.
 
       #### Berlin Group NextGenPSD2 XS2A
       Volvofinans Bank Open Banking APIs is implemented using an adapted version of the Berlin Group NextGenPSD2 XS2A specification.
-      
-      Full Documentation of NextGenPSD2 Access to Account Interoperability Framework (General Introduction Paper, Operational Rules, Implementation Guidelines) 
+
+      Full Documentation of NextGenPSD2 Access to Account Interoperability Framework (General Introduction Paper, Operational Rules, Implementation Guidelines)
       Read more at: [https://www.berlin-group.org/nextgenpsd2-downloads](https://www.berlin-group.org/nextgenpsd2-downloads)
-      
+
       ### Glossary
-      - Account Holder: Account holder (and Co account holder) is the owner of the account. All details regarding the 
+      - Account Holder: Account holder (and Co account holder) is the owner of the account. All details regarding the
       account is available to the account holder
-      - Additional Card Holder: A card holder (additional card holder) might have access to a credit card but is not owner of the account. Only a few details 
+      - Additional Card Holder: A card holder (additional card holder) might have access to a credit card but is not owner of the account. Only a few details
       are available to the card holder.
       - AIS: Account Information Services
       - AISP: Account Information Service Provider
@@ -67,7 +67,7 @@ paths:
   /v1/accounts:
     get:
       summary: Read Account List
-      description: | 
+      description: |
         Read the identifiers of the available account together with
         booking balance information, depending on the consent granted.
 
@@ -119,8 +119,8 @@ paths:
   /v1/accounts/{account-id}:
     get:
       summary: Read Account Details
-      description: | 
-        Reads details about an account, with balances where required. 
+      description: |
+        Reads details about an account, with balances where required.
         It is assumed that a consent of the PSU to this access is already given to the ASPSP system.
         The addressed details of this account depends then on the PSU ID and the consent addressed by the OAuth2 access token.
 
@@ -174,7 +174,7 @@ paths:
     get:
       summary: Read Balance
       description: |
-        Reads account balance from a given account addressed by "account-id". 
+        Reads account balance from a given account addressed by "account-id".
 
         The account-id is constant at least throughout the lifecycle of a given consent.
       operationId: getBalances
@@ -226,8 +226,8 @@ paths:
         "bookingStatus" defaults to "both" if not specified.
 
         For a given account, additional parameters are e.g. the attributes "dateFrom", "dateTo" and "entryReferenceFrom".
-        
-        The transaction list return a maximum of 100 transactions per call. Use the query parameter "entryReferenceFrom" to fetch more transactions. 
+
+        The transaction list return a maximum of 100 transactions per call. Use the query parameter "entryReferenceFrom" to fetch more transactions.
       operationId: getTransactionList
       tags:
         - Account Information Service (AIS)
@@ -308,7 +308,7 @@ components:
           schema:
             $ref: "#/components/schemas/accountDetails"
           examples:
-            "Regular Account": 
+            "Regular Account":
               $ref: "#/components/examples/accountDetailsRegularAccount"
 
     OK_200_AccountList:
@@ -387,7 +387,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error400_NG_AIS" 
+            $ref: "#/components/schemas/Error400_NG_AIS"
 
     UNAUTHORIZED_401_AIS:
       description: Unauthorized
@@ -401,7 +401,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error401_NG_AIS" 
+            $ref: "#/components/schemas/Error401_NG_AIS"
 
     FORBIDDEN_403_AIS:
       description: Forbidden
@@ -415,7 +415,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error403_NG_AIS" 
+            $ref: "#/components/schemas/Error403_NG_AIS"
 
     NOT_FOUND_404_AIS:
       description: Not found
@@ -429,7 +429,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error404_NG_AIS" 
+            $ref: "#/components/schemas/Error404_NG_AIS"
 
     METHOD_NOT_ALLOWED_405_AIS:
       description: Method Not Allowed
@@ -443,7 +443,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error405_NG_AIS" 
+            $ref: "#/components/schemas/Error405_NG_AIS"
 
     NOT_ACCEPTABLE_406_AIS:
       description: Not Acceptable
@@ -457,9 +457,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error406_NG_AIS" 
+            $ref: "#/components/schemas/Error406_NG_AIS"
 
-    REQUEST_TIMEOUT_408_AIS: 
+    REQUEST_TIMEOUT_408_AIS:
       description: Request Timeout
 
       headers:
@@ -469,7 +469,7 @@ components:
           $ref: "#/components/headers/X-Request-ID"
       #No Response body because there are no valid message codes for AIS in case of HTTP code 408
 
-    CONFLICT_409_AIS: 
+    CONFLICT_409_AIS:
       description: Conflict
 
       headers:
@@ -490,7 +490,7 @@ components:
           $ref: "#/components/headers/Location"
         X-Request-ID:
           $ref: "#/components/headers/X-Request-ID"
-      #No Response body because there are no valid message codes for AIS in case of HTTP code 415    
+      #No Response body because there are no valid message codes for AIS in case of HTTP code 415
 
     TOO_MANY_REQUESTS_429_AIS:
       description: Too Many Requests
@@ -504,7 +504,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Error429_NG_AIS" 
+            $ref: "#/components/schemas/Error429_NG_AIS"
 
     INTERNAL_SERVER_ERROR_500_AIS:
       description: Internal Server Error
@@ -540,7 +540,7 @@ components:
       properties:
         resourceId:
           description: |
-            The resourceId represents the specific account. This is the element to be used in the path when retrieving 
+            The resourceId represents the specific account. This is the element to be used in the path when retrieving
             data from a dedicated account.
           type: string
           example: "AAwGMMLaejdSWH9XpEeZBpY1Y1HqOHcK_TgWnVzqegmE57oadNnvP_Urgx7ciHpjgf06w0phsDSKjnFijq8rD2y4Jjxkf7nmOfx6N-j2MAj9chg"
@@ -555,9 +555,9 @@ components:
           example: "Volvokort Visa"
         balances:
           $ref: "#/components/schemas/balanceList"
-        creditLimit: 
+        creditLimit:
           description: |
-            The credit limit for the account.  
+            The credit limit for the account.
             Valid for accounts with credits, i.e not debit accounts.
           allOf:
             - $ref: "#/components/schemas/amount"
@@ -567,8 +567,8 @@ components:
               - credit
               - debit
           type: string
-          enum: 
-            - "credit"              
+          enum:
+            - "credit"
             - "debit"
           example: "credit"
         loyaltyPoints:
@@ -577,7 +577,7 @@ components:
           $ref: "#/components/schemas/accountStatus"
 
     accountId:
-      description: This identification is denoting the addressed account, where the transaction has been performed. 
+      description: This identification is denoting the addressed account, where the transaction has been performed.
       type: string
       example: "qwer3456tzui7890"
 
@@ -590,7 +590,7 @@ components:
           type: string
         country:
           type: string
-      example: 
+      example:
         {
           city: "Berlin",
           country: "DE"
@@ -616,12 +616,12 @@ components:
       example: "5660729"
 
     accountReference:
-      description: | 
+      description: |
         Reference to an account via the account number
 
       type: object
       properties:
-        accountNumber: 
+        accountNumber:
           $ref: "#/components/schemas/accountNumber"
 
     accountReport:
@@ -666,7 +666,7 @@ components:
           $ref: "#/components/schemas/amountValue"
         currency:
           $ref: "#/components/schemas/currencyCode"
-      example: 
+      example:
         {
           "amount": "1024.26",
           "currency": "SEK"
@@ -715,11 +715,11 @@ components:
       description: |
         The following balance types are defined:
           - "expected":
-            Balance composed of booked entries and pending items known at the time of calculation, 
+            Balance composed of booked entries and pending items known at the time of calculation,
             which projects the end of day balance if everything is booked on the account and no other entry is posted.
 
-            This is composed of 
-              - invoiced, but not yet paid entries, 
+            This is composed of
+              - invoiced, but not yet paid entries,
               - not yet invoiced but already booked entries and
               - pending items (not yet booked)
       type: string
@@ -738,12 +738,12 @@ components:
         Fueling details for fueling purchases made at partner petrol stations.
       type: object
       properties:
-        volume: 
+        volume:
           description: |
             Volume of fuel
           type: number
           format: double
-        quality: 
+        quality:
           description: |
             Fueling quality
           type: string
@@ -758,12 +758,12 @@ components:
 
     proprietaryBankTransactionCode:
       description: |
-        Proprietary bank transaction code as used within Volvofinans Bank. 
+        Proprietary bank transaction code as used within Volvofinans Bank.
 
         Valid for all types of transactions.
       type: string
       maxLength: 35
-      enum: 
+      enum:
         - "CORRECTION" # Corrections on account
         - "FEE"        # Fees deducted from account
         - "INTEREST"   # Account interest
@@ -792,70 +792,70 @@ components:
             Tokenised identifier for a transaction.
 
             Valid for all types of transactions.
-            
+
             Available for Account Holders and Additional Card Holders.
           type: string
         proprietaryBankTransactionCode:
           $ref: "#/components/schemas/proprietaryBankTransactionCode"
         transactionDetails:
           description: |
-            Detailed transaction information, i.e the transaction text. 
+            Detailed transaction information, i.e the transaction text.
 
             Valid for all types of transactions.
-            
+
             Available for Account Holders and Additional Card Holders.
           type: string
         transactionAmount:
           description: |
             The amount and currency of the transaction.
-            
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         originalAmount:
           description: |
             The amount of a transaction in the original purchase currency
-            
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE, CORRECTION.
-            
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         cardAcceptorAddress:
           description: |
             The location, city and country, where the purchase was made
-            
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
-            Valid only for "booked" transactions and visible if city or country is available.
-            
+
+            Valid only for "booked" transactions and included if city and/or country is available.
+
             Available for Account Holders and Additional Card Holders.
           allOf:
             - $ref: "#/components/schemas/address"
         foreignTransactionFee:
           description: |
             The amount added, in SEK, for transactions made with foreign currencies.
-            
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         withdrawalFee:
           description: |
             The amount, in SEK, added for withdrawals e.g. ATMs.
-            
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         transactionDate:
           description: |
             The transaction date for the transaction.
 
             Valid for all types of transactions.
-            
+
             Available for Account Holders and Additional Card Holders.
           type: string
           format: date
@@ -864,53 +864,53 @@ components:
             The sequence number of the card used for the transaction
 
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Note that some types of purchases, i.e. purchase initiated from CarPay, does not include the card sequence.
-            
+
             Available for Account Holders and Additional Card Holders.
           type: number
         loyaltyPoints:
           description: |
-            The number of loyalty points that the transaction rewarded. 
+            The amount of loyalty points that the transaction rewarded.
 
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Valid only for "booked" transactions.
           allOf:
-            - $ref: "#/components/schemas/loyaltyPoints" 
-          
+            - $ref: "#/components/schemas/loyaltyPoints"
+
           type: number
           format: double
         discount:
           description: |
-            The discount the purchase was given. 
+            The discount the purchase was given.
 
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
-            Valid only for "booked" transactions and only inlcuded if discount was given.
-            
+
+            Valid only for "booked" transactions and only included if discount was given.
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         loyaltyCheck:
           description: |
             The amount of the deducted loyalty check(s).
 
-            Valid only for "booked" transactions and only displayed if loyalty check was used for the purchase.
-            
+            Valid only for "booked" transactions and included if loyalty check was used for the purchase.
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Available for Account Holders and Additional Card Holders.
           allOf:
-           - $ref: "#/components/schemas/amount"
+            - $ref: "#/components/schemas/amount"
         visaMerchantCategory:
           description: |
             The Visa Merchant Category description.
 
             Valid only for "booked" transactions for purchases made within the Visa network.
-            
+
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE
-            
+
             Available for Account Holders and Additional Card Holders.
           type: string
           example: "FINANCIAL INST/AUTOMATED CASH DISBURSEMENTS"
@@ -919,15 +919,15 @@ components:
             Account that funds was transferred from.
 
             Valid for transactions with proprietaryBankTransactionCode: TRANSFER
-            
+
             Available for Account Holders.
-          type: string        
+          type: string
         toAccount:
           description: |
             Account that funds was transfered to when transfering between two Volvofinans Bank Accounts.
 
             Valid for transactions with proprietaryBankTransactionCode: TRANSFER
-            
+
             Available for Account Holders.
           type: string
         bank:
@@ -935,7 +935,7 @@ components:
             Bank that funds was transfered to when transfering funds to an external account.
 
             Valid for transactions with proprietaryBankTransactionCode: TRANSFER
-            
+
             Available for Account Holders.
           type: string
         clearingNumber:
@@ -943,7 +943,7 @@ components:
             Clearing number of external bank account that funds was transfered to when transfering funds to an external account.
 
             Valid only for transactions of type TRANSFER.
-            
+
             Available for Account Holders.
           type: string
         bankAccountNumber:
@@ -951,15 +951,15 @@ components:
             Account number of external bank account that funds was transfered to when transfering funds to an external account.
 
             Valid only for transactions of type TRANSFER.
-            
+
             Available for Account Holders.
           type: string
-        ownMessage: 
+        ownMessage:
           description: |
             Message that the customer provides for the transfer
 
             Valid only for transactions of type TRANSFER.
-            
+
             Available for Account Holders.
           type: string
         fuelDetails:
@@ -976,7 +976,7 @@ components:
     transactionList:
       description: Array of transaction details
       type: array
-      items: 
+      items:
         $ref: "#/components/schemas/transactionDetails"
 
     transactionsResponse-200_json:
@@ -991,86 +991,86 @@ components:
           $ref: "#/components/schemas/accountReport"
         _links:
           description: |
-            The _links property is only available if there are moretransactions to fetch for the given date interval. 
+            The _links property is only available if there are more transactions to fetch for the given date interval.
           type: object
           properties:
             fetchMoreUrl:
               description: Url to use to fetch more transactions for the given date interval.
 
-    MessageCode400_AIS: 
+    MessageCode400_AIS:
       description: Message codes defined for AIS for HTTP Error code 400 (BAD_REQUEST).
       type: string
-      enum: 
-        - "FORMAT_ERROR"              
-        - "PARAMETER_NOT_CONSISTENT"  
-        - "PARAMETER_NOT_SUPPORTED"   
-        - "SERVICE_INVALID"           
-        - "RESOURCE_UNKNOWN"          
-        - "RESOURCE_EXPIRED"          
-        - "RESOURCE_BLOCKED"          
-        - "TIMESTAMP_INVALID"         
-        - "PERIOD_INVALID"            
-        - "SCA_METHOD_UNKNOWN"        
-        - "CONSENT_UNKNOWN"           
-        - "SESSIONS_NOT_SUPPORTED"    
+      enum:
+        - "FORMAT_ERROR"
+        - "PARAMETER_NOT_CONSISTENT"
+        - "PARAMETER_NOT_SUPPORTED"
+        - "SERVICE_INVALID"
+        - "RESOURCE_UNKNOWN"
+        - "RESOURCE_EXPIRED"
+        - "RESOURCE_BLOCKED"
+        - "TIMESTAMP_INVALID"
+        - "PERIOD_INVALID"
+        - "SCA_METHOD_UNKNOWN"
+        - "CONSENT_UNKNOWN"
+        - "SESSIONS_NOT_SUPPORTED"
 
-    MessageCode401_AIS: 
+    MessageCode401_AIS:
       description: Message codes defined for AIS for HTTP Error code 401 (UNAUTHORIZED).
       type: string
-      enum: 
-        - "CERTIFICATE_INVALID"       
-        - "CERTIFICATE_EXPIRED"       
-        - "CERTIFICATE_BLOCKED"       
-        - "CERTIFICATE_REVOKE"        
-        - "CERTIFICATE_MISSING"       
-        - "SIGNATURE_INVALID"         
-        - "SIGNATURE_MISSING"         
-        - "CORPORATE_ID_INVALID"      
-        - "PSU_CREDENTIALS_INVALID"   
-        - "CONSENT_INVALID"           
-        - "CONSENT_EXPIRED"           
-        - "TOKEN_UNKNOWN"             
-        - "TOKEN_INVALID"             
-        - "TOKEN_EXPIRED"             
+      enum:
+        - "CERTIFICATE_INVALID"
+        - "CERTIFICATE_EXPIRED"
+        - "CERTIFICATE_BLOCKED"
+        - "CERTIFICATE_REVOKE"
+        - "CERTIFICATE_MISSING"
+        - "SIGNATURE_INVALID"
+        - "SIGNATURE_MISSING"
+        - "CORPORATE_ID_INVALID"
+        - "PSU_CREDENTIALS_INVALID"
+        - "CONSENT_INVALID"
+        - "CONSENT_EXPIRED"
+        - "TOKEN_UNKNOWN"
+        - "TOKEN_INVALID"
+        - "TOKEN_EXPIRED"
 
-    MessageCode403_AIS: 
+    MessageCode403_AIS:
       description: Message codes defined for AIS for HTTP Error code 403 (FORBIDDEN).
       type: string
-      enum: 
-        - "CONSENT_UNKNOWN"           
-        - "SERVICE_BLOCKED"           
-        - "RESOURCE_UNKNOWN"          
-        - "RESOURCE_EXPIRED"          
+      enum:
+        - "CONSENT_UNKNOWN"
+        - "SERVICE_BLOCKED"
+        - "RESOURCE_UNKNOWN"
+        - "RESOURCE_EXPIRED"
 
-    MessageCode404_AIS: 
+    MessageCode404_AIS:
       description: Message codes defined for AIS for HTTP Error code 404 (NOT FOUND).
       type: string
-      enum: 
-        - "RESOURCE_UNKNOWN"          
+      enum:
+        - "RESOURCE_UNKNOWN"
 
-    MessageCode405_AIS: 
+    MessageCode405_AIS:
       description: Message codes defined for AIS for HTTP Error code 405 (METHOD NOT ALLOWED).
       type: string
-      enum: 
-        - "SERVICE_INVALID"           
+      enum:
+        - "SERVICE_INVALID"
 
-    MessageCode406_AIS: 
+    MessageCode406_AIS:
       description: Message codes defined for AIS for HTTP Error code 406 (NOT ACCEPTABLE).
       type: string
-      enum: 
-        - "REQUESTED_FORMATS_INVALID"  
+      enum:
+        - "REQUESTED_FORMATS_INVALID"
 
-    MessageCode409_AIS: 
+    MessageCode409_AIS:
       description: Message codes defined for AIS for HTTP Error code 409 (CONFLICT).
       type: string
-      enum: 
-        - "STATUS_INVALID"            
+      enum:
+        - "STATUS_INVALID"
 
-    MessageCode429_AIS: 
+    MessageCode429_AIS:
       description: Message codes for HTTP Error code 429 (TOO MANY REQUESTS).
       type: string
-      enum: 
-        - "ACCESS_EXCEEDED"           
+      enum:
+        - "ACCESS_EXCEEDED"
 
 #####################################################
 # Tpp-Messages to Communicate Error Information
@@ -1093,15 +1093,15 @@ components:
 
     tppErrorTitle:
       description: |
-        Short human readable description of error type. 
-        Could be in local language. 
+        Short human readable description of error type.
+        Could be in local language.
         To be provided by ASPSPs.
       type: string
       maxLength: 70
 
     tppErrorDetail:
       description: |
-        Detailed human readable text specific to this instance of the error. 
+        Detailed human readable text specific to this instance of the error.
         XPath might be used to point to the issue generating the error in addition.
         Remark for Future: In future, a dedicated field might be introduced for the XPath.
       type: string
@@ -1128,7 +1128,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage400_AIS"
 
-    Error401_NG_AIS: 
+    Error401_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 401.
       type: object
@@ -1138,7 +1138,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage401_AIS"
 
-    Error403_NG_AIS: 
+    Error403_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 403.
       type: object
@@ -1148,7 +1148,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage403_AIS"
 
-    Error404_NG_AIS: 
+    Error404_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 404.
       type: object
@@ -1158,7 +1158,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage404_AIS"
 
-    Error405_NG_AIS: 
+    Error405_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 405.
       type: object
@@ -1168,7 +1168,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage405_AIS"
 
-    Error406_NG_AIS: 
+    Error406_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 406.
       type: object
@@ -1178,7 +1178,7 @@ components:
           items:
             $ref: "#/components/schemas/tppMessage406_AIS"
 
-    Error409_NG_AIS: 
+    Error409_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 409.
       type: object
@@ -1194,7 +1194,7 @@ components:
           "text": "additional text information of the ASPSP up to 512 characters"
         }]
 
-    Error429_NG_AIS: 
+    Error429_NG_AIS:
       description: |
         NextGenPSD2 specific definition of reporting error information in case of a HTTP error code 429.
       type: object
@@ -1238,7 +1238,7 @@ components:
         path:
           type: string
         text:
-          $ref: "#/components/schemas/tppMessageText"          
+          $ref: "#/components/schemas/tppMessageText"
 
     tppMessage403_AIS:
       type: object
@@ -1335,7 +1335,7 @@ components:
     authorization:
       name: Authorization
       in: header
-      description: Authorization header 
+      description: Authorization header
       required: true
       example: "Bearer <token>"
       schema:
@@ -1345,10 +1345,10 @@ components:
       name: account-id
       in: path
       description: |
-        This identification is denoting the addressed account. 
-        The account-id is retrieved by using a "Read Account List" call. 
-        The account-id is the "id" attribute of the account structure. 
-        
+        This identification is denoting the addressed account.
+        The account-id is retrieved by using a "Read Account List" call.
+        The account-id is the "id" attribute of the account structure.
+
         Its value is constant at least throughout the lifecycle of a given consent.
       required: true
       schema:
@@ -1358,9 +1358,9 @@ components:
       name: bookingStatus
       in: query
       description: |
-        Permitted codes are 
+        Permitted codes are
           * "booked",
-          * "pending" and 
+          * "pending" and
           * "both"
       required: false
       schema:
@@ -1376,9 +1376,9 @@ components:
       description: |
         Conditional: Starting date (inclusive the date dateFrom) of the transaction list
 
-        For booked transactions, the relevant date is the booking date. 
+        For booked transactions, the relevant date is the booking date.
 
-        For pending transactions, the relevant date is the entry date, which may not be transparent 
+        For pending transactions, the relevant date is the entry date, which may not be transparent
         neither in this API nor other channels of the ASPSP.
       required: false
       schema:
@@ -1389,11 +1389,11 @@ components:
       name: dateTo
       in: query
       description: |
-        End date (inclusive the data dateTo) of the transaction list, default is "now" if not given. 
+        End date (inclusive the data dateTo) of the transaction list, default is "now" if not given.
 
-        For booked transactions, the relevant date is the booking date. 
+        For booked transactions, the relevant date is the booking date.
 
-        For pending transactions, the relevant date is the entry date, which may not be transparent 
+        For pending transactions, the relevant date is the entry date, which may not be transparent
         neither in this API nor other channels of the ASPSP.
 
       required: false
@@ -1534,12 +1534,14 @@ components:
               }
           ]
         }
-    
+
     transactionsExample1_CreditAccount_json:
       description: Transactions example for a regular credit account
       value:
         {
-          "accountNumber": "5660729",
+          "account": {
+              "accountNumber": "5660729"
+          },
           "transactions": {
               "booked": [
                   {
