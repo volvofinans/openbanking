@@ -227,7 +227,7 @@ paths:
 
         For a given account, additional parameters are e.g. the attributes "dateFrom", "dateTo" and "entryReferenceFrom".
 
-        The transaction list return a maximum of 100 transactions per call. Use the query parameter "entryReferenceFrom" to fetch more transactions.
+        The transaction list return a maximum of 20 transactions per call. Use the query parameter "entryReferenceFrom" to fetch the following transactions. When more transactions are available the link "fetchMoreUrl" is returned.
       operationId: getTransactionList
       tags:
         - Account Information Service (AIS)
@@ -355,21 +355,6 @@ components:
           examples:
             "Example 1: Regular Account":
               $ref: "#/components/examples/balancesRegularAccount"
-
-    OK_200_TransactionDetails:
-      description: OK
-
-      headers:
-        X-Request-ID:
-          $ref: "#/components/headers/X-Request-ID"
-
-      #content:
-        #application/json:
-          #schema:
-          #  $ref: "#/components/schemas/transactionDetails"
-          #examples:
-           # Example:
-            #  $ref: "#/components/examples/transactionDetailsExample"
 
     #####################################################
     # Negative Responses
@@ -748,6 +733,13 @@ components:
             Fueling quality
           type: string
           example: "diesel"
+        unit:
+          description: |
+            Unit of the fueling quality.
+          type: string
+          enum:
+            - "LITER"
+            - "KG"
 
     loyaltyPoints:
       description: |
@@ -797,6 +789,15 @@ components:
           type: string
         proprietaryBankTransactionCode:
           $ref: "#/components/schemas/proprietaryBankTransactionCode"
+        price:
+          description: |
+            The initial price before fees and deductions has been applied.
+
+            Valid for transactions with proprietaryBankTransactionCode: PURCHASE
+
+            Available for Account Holders and Additional Card Holders.
+          allOf:
+            - $ref: "#/components/schemas/amount"
         transactionDetails:
           description: |
             Detailed transaction information, i.e the transaction text.
@@ -807,14 +808,14 @@ components:
           type: string
         transactionAmount:
           description: |
-            The amount and currency of the transaction.
+            The amount and currency of the transaction that the account is charged.
 
             Available for Account Holders and Additional Card Holders.
           allOf:
             - $ref: "#/components/schemas/amount"
         originalAmount:
           description: |
-            The amount of a transaction in the original purchase currency
+            The amount of a transaction in the original purchase currency.
 
             Valid for transactions with proprietaryBankTransactionCode: PURCHASE, CORRECTION.
 
@@ -1586,6 +1587,10 @@ components:
                       "transactionId": "d98cf6fed3821ad7a00dcf39878e012636764bffe1099386a2b7a3579cae361a",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "Volvohandlaren",
+                      "price": {
+                          "amount": -9962,
+                          "currency": "SEK"
+                      },
                       "transactionAmount": {
                           "amount": -9962,
                           "currency": "SEK"
@@ -1597,6 +1602,10 @@ components:
                       "transactionId": "8a20d38dfb40461b690902d7a2fde6485c996a096ad374430656ee247cf60692",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "Cale Access AB",
+                      "price": {
+                          "amount": -103,
+                          "currency": "SEK"
+                      },
                       "transactionAmount": {
                           "amount": -103,
                           "currency": "SEK"
@@ -1609,6 +1618,10 @@ components:
                       "transactionId": "3b50e2d7ec37f26b4f9b83e675068d25c4e51a135c4f7d344ec5be20b821c2f1",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "CASH CARISBO   2022-BOLOG",
+                      "transactionAmount": {
+                          "amount": -2659.74,
+                          "currency": "SEK"
+                      },
                       "transactionAmount": {
                           "amount": -2659.74,
                           "currency": "SEK"
@@ -1638,6 +1651,10 @@ components:
                       "transactionId": "7f2ac3fe884312da381083ed8f144bdb975b48a60ee1640679c25fa0ed465695",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "BANKOMAT HULTA TORG 4",
+                      "price": {
+                          "amount": -2000,
+                          "currency": "SEK"
+                      },
                       "transactionAmount": {
                           "amount": -2040,
                           "currency": "SEK"
@@ -1659,6 +1676,10 @@ components:
                       "transactionId": "5fd82569605f3429e0752512de5b12e9bd6f66a91f9a8e20d3312e7f9f883db2",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "ATM SPAREBANKEN MOERE LAN",
+                      "price": {
+                          "amount": -2123.81,
+                          "currency": "SEK"
+                      },
                       "transactionAmount": {
                           "amount": -2123.81,
                           "currency": "SEK"
