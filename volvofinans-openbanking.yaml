@@ -1618,8 +1618,8 @@ components:
                       "transactionId": "3b50e2d7ec37f26b4f9b83e675068d25c4e51a135c4f7d344ec5be20b821c2f1",
                       "proprietaryBankTransactionCode": "PURCHASE",
                       "transactionDetails": "CASH CARISBO   2022-BOLOG",
-                      "transactionAmount": {
-                          "amount": -2659.74,
+                      "price": {
+                          "amount": -2569.79,
                           "currency": "SEK"
                       },
                       "transactionAmount": {
