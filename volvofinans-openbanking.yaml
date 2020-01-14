@@ -541,6 +541,10 @@ components:
           type: string
           maxLength: 30
           example: "Volvokort Visa"
+        ownerName:
+          description: Name of the legal account owner. If there is more than one owner, then e.g. two names might be noted here.
+          type: string
+          example: "Erik Johansson"
         balances:
           $ref: "#/components/schemas/balanceList"
         creditLimit:
