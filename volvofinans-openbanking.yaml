@@ -546,11 +546,15 @@ components:
           type: string
           example: "Erik Johansson"
         balances:
-          $ref: "#/components/schemas/balanceList"
+          description: |
+            Available for Account Holders
+          allOf:
+           - $ref: "#/components/schemas/balanceList"
         creditLimit:
           description: |
             The credit limit for the account.
             Valid for accounts with credits, i.e not debit accounts.
+            Available for Account Holders
           allOf:
             - $ref: "#/components/schemas/amount"
         accountType:
